@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Addora | Hospitality Growth Systems</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#111111",
+gold: "#C8A951",
+surface: "#1a1a1a",
+borderdark: "#2a2a2a",
+subtext: "#B8B8B8"
+},
+fontFamily: {
+serif: ["Playfair Display", "serif"],
+sans: ["Inter", "sans-serif"]
+}
+}
+}
+}
+</script>
+
+<style>
+body {
+background:#111111;
+color:#F8F8F8;
+font-family:'Inter',sans-serif;
+opacity: 1;
+transition: opacity 0.3s ease-in-out;
+}
+body.transitioning {
+opacity: 0.5;
+}
+
+.gold-gradient {
+background: linear-gradient(to right, #C8A951, #E5D296);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+/* Smooth Scroll */
+html {
+scroll-behavior: smooth;
+}
+
+/* Navbar Shrink */
+header {
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+header.shrink {
+padding: 0.5rem 0;
+}
+header.shrink h2 {
+font-size: 1.25rem;
+}
+
+/* Button Ripple Effect */
+a[href*="contact"] {
+position: relative;
+overflow: hidden;
+}
+a[href*="contact"]::after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: rgba(200, 169, 81, 0.5);
+border-radius: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+a[href*="contact"]:active::after {
+animation: ripple 0.6s ease-out;
+}
+@keyframes ripple {
+to {
+width: 300px;
+height: 300px;
+opacity: 0;
+}
+}
+
+/* Lazy Load Images */
+img[loading="lazy"] {
+backdrop-filter: blur(10px);
+}
+img[loading="lazy"].loaded {
+animation: imageLoad 0.6s ease-out;
+}
+@keyframes imageLoad {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+/* Enhanced Scroll Reveal */
+.scroll-reveal {
+opacity: 0;
+transform: translateY(40px);
+}
+.scroll-reveal.active {
+animation: scrollReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes scrollReveal {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Counter Styles */
+.counter {
+font-variant-numeric: tabular-nums;
+letter-spacing: 0.05em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Page Transition Overlay -->
+<div class="fixed inset-0 bg-primary z-[200] pointer-events-none" id="page-transition" style="opacity: 1; transition: opacity 0.5s ease-in-out;"></div>
+
+<!-- NAVBAR -->
+<header class="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-md border-b border-borderdark">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+<img src="logo.png" alt="Addora Logo" class="h-8 w-auto">
+
+<nav class="hidden md:flex gap-10 text-sm uppercase tracking-widest text-subtext">
+<a href="index.html" class="hover:text-gold transition">Home</a>
+<a href="services.html" class="hover:text-gold transition">Services</a>
+<a href="Success_stories.html" class="hover:text-gold transition">Success Stories</a>
+<a href="about.html" class="text-gold">About</a>
+</nav>
+
+<a href="contact.html"
+class="bg-gold text-primary px-6 py-2 text-xs font-semibold tracking-widest uppercase">
+Start Campaign
+</a>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="pt-40 pb-32 text-center relative overflow-hidden">
+
+<div class="absolute inset-0">
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-primary z-10"></div>
+<img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb21014?q=80&w=2070"
+class="w-full h-full object-cover opacity-40"/>
+</div>
+
+<div class="relative z-20 max-w-4xl mx-auto px-6">
+
+<span class="text-gold uppercase tracking-[0.4em] text-xs">
+About Addora
+</span>
+
+<h1 class="font-serif text-5xl md:text-6xl mt-8 leading-tight">
+India’s Hospitality <br>
+<span class="gold-gradient">Growth Partner</span>
+</h1>
+
+<p class="text-subtext text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
+Addora is a performance-driven hospitality marketing company
+focused on increasing occupancy, footfall, and brand authority
+for hotels, resorts, and clubs across India.
+</p>
+
+</div>
+</section>
+
+<!-- VISION SECTION -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+
+<div>
+<h2 class="text-gold text-xs uppercase tracking-[0.4em] mb-6">
+Vision & Philosophy
+</h2>
+
+<h3 class="font-serif text-4xl mb-8 leading-snug">
+Subtle Strategy. Measurable Growth.
+</h3>
+
+<p class="text-subtext text-lg leading-relaxed mb-8">
+We believe hospitality growth is not driven by noise,
+but by structured positioning, precise targeting,
+and measurable performance systems.
+</p>
+
+<p class="text-subtext text-lg leading-relaxed">
+Our philosophy is simple:
+build real demand, increase direct bookings,
+reduce dependency on high-commission platforms,
+and establish long-term brand authority.
+</p>
+
+</div>
+
+<div class="relative">
+<div class="absolute -inset-6 border border-gold/20 rounded-xl"></div>
+<img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070"
+class="relative z-10 w-full rounded-xl"/>
+</div>
+
+</div>
+</div>
+</section>
+<!-- LEADERSHIP -->
+<section class="py-32">
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-20">
+<span class="text-gold text-xs uppercase tracking-[0.4em]">
+Leadership
+</span>
+<h2 class="font-serif text-4xl mt-6">
+Architects of Growth
+</h2>
+</div>
+
+<div class="grid md:grid-cols-3 gap-16">
+
+<!-- Leader 1 -->
+<div class="group text-center">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-surface border border-borderdark">
+<img src="https://images.unsplash.com/photo-1603415526960-f8f0c0d8e05f?q=80&w=2070"
+class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"/>
+</div>
+<h4 class="text-xl font-semibold">Founder & Strategy Director</h4>
+<p class="text-gold text-xs uppercase tracking-widest mt-2 mb-4">
+Performance Systems
+</p>
+<p class="text-subtext text-sm leading-relaxed">
+Over a decade of hospitality market analysis, positioning strategy,
+and structured campaign execution across metro and tier-2 cities.
+</p>
+</div>
+
+<!-- Leader 2 -->
+<div class="group text-center">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-surface border border-borderdark">
+<img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=2070"
+class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"/>
+</div>
+<h4 class="text-xl font-semibold">Brand Architecture Lead</h4>
+<p class="text-gold text-xs uppercase tracking-widest mt-2 mb-4">
+Positioning & Narrative
+</p>
+<p class="text-subtext text-sm leading-relaxed">
+Specializes in building premium brand identity systems
+for hospitality properties seeking high-end market positioning.
+</p>
+</div>
+
+<!-- Leader 3 -->
+<div class="group text-center">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-surface border border-borderdark">
+<img src="https://images.unsplash.com/photo-1556157382-97eda2f9e9bf?q=80&w=2070"
+class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"/>
+</div>
+<h4 class="text-xl font-semibold">Operations & Data Lead</h4>
+<p class="text-gold text-xs uppercase tracking-widest mt-2 mb-4">
+Analytics & Execution
+</p>
+<p class="text-subtext text-sm leading-relaxed">
+Ensures campaign transparency, performance tracking,
+and measurable ROI across all client partnerships.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- METHODOLOGY -->
+<section class="py-32 bg-surface">
+<div class="max-w-5xl mx-auto px-6">
+
+<div class="text-center mb-20">
+<span class="text-gold text-xs uppercase tracking-[0.4em]">
+Our Methodology
+</span>
+<h2 class="font-serif text-4xl mt-6">
+Structured Growth Framework
+</h2>
+</div>
+
+<div class="space-y-16">
+
+<div>
+<h4 class="text-gold uppercase tracking-widest text-xs mb-4">
+01 — Market Audit
+</h4>
+<p class="text-subtext text-lg leading-relaxed">
+We analyze property positioning, audience demographics,
+competitive landscape, and booking channel dependency.
+</p>
+</div>
+
+<div>
+<h4 class="text-gold uppercase tracking-widest text-xs mb-4">
+02 — Strategic Positioning
+</h4>
+<p class="text-subtext text-lg leading-relaxed">
+We build a clear market identity and define
+targeted promotional pathways.
+</p>
+</div>
+
+<div>
+<h4 class="text-gold uppercase tracking-widest text-xs mb-4">
+03 — Campaign Execution
+</h4>
+<p class="text-subtext text-lg leading-relaxed">
+Multi-channel deployment across regional and national segments
+to increase visibility and drive verified footfall.
+</p>
+</div>
+
+<div>
+<h4 class="text-gold uppercase tracking-widest text-xs mb-4">
+04 — Performance Measurement
+</h4>
+<p class="text-subtext text-lg leading-relaxed">
+Tracking occupancy growth, booking conversions,
+and audience expansion metrics.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- STATS -->
+<section class="py-32 border-y border-borderdark">
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-16 text-center">
+
+<div>
+<div class="counter font-serif text-5xl text-gold mb-4" data-target="300">0</div>
+<p class="text-subtext text-xs uppercase tracking-widest">
+Successful Campaigns
+</p>
+</div>
+
+<div>
+<div class="font-serif text-5xl text-gold mb-4">5,00,000+</div>
+<p class="text-subtext text-xs uppercase tracking-widest">
+Happy Customers
+</p>
+</div>
+
+<div>
+<div class="font-serif text-5xl text-gold mb-4">80%</div>
+<p class="text-subtext text-xs uppercase tracking-widest">
+More Visibility
+</p>
+</div>
+
+<div>
+<div class="font-serif text-5xl text-gold mb-4">PAN</div>
+<p class="text-subtext text-xs uppercase tracking-widest">
+India Coverage
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-32 text-center">
+<div class="max-w-4xl mx-auto px-6">
+
+<h2 class="font-serif text-4xl md:text-5xl mb-8">
+Let’s Build Measurable Growth.
+</h2>
+
+<p class="text-subtext text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+If your property is looking to increase occupancy,
+strengthen brand authority, and drive verified footfall,
+Addora builds the system that delivers.
+</p>
+
+<a href="contact.html"
+class="bg-gold text-primary px-12 py-5 uppercase text-xs tracking-widest font-semibold">
+Schedule Strategy Discussion
+</a>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="py-16 border-t border-borderdark text-center">
+<div class="max-w-7xl mx-auto px-6">
+
+<h3 class="text-gold font-serif text-2xl mb-6">
+Addora
+</h3>
+
+<div class="flex justify-center gap-10 text-xs uppercase tracking-widest text-subtext mb-8">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">LinkedIn</a>
+</div>
+
+<p class="text-subtext text-xs">
+© 2024 Addora Hospitality Marketing Services. All Rights Reserved.
+</p>
+
+</div>
+</footer>
+
+<!-- Addora Footer -->
+<footer class="pt-24 pb-12 bg-primary border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6 w-full">
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+
+<div>
+<div class="flex items-center gap-3 mb-8">
+<img src="logo.png" alt="Addora Logo" class="h-8 w-auto">
+
+<p class="text-white/40 text-sm font-light leading-relaxed">
+Addora Hospitality Marketing Services — driving guaranteed footfalls PAN INDIA.
+</p>
+</div>
+
+<div>
+<h4 class="text-white font-medium mb-8 uppercase tracking-widest text-xs">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="index.html">Home</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="services.html">Services</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="Success_stories.html">Success Stories</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+<div>
+<h4 class="text-white font-medium mb-8 uppercase tracking-widest text-xs">Contact</h4>
+<ul class="space-y-4">
+<li class="text-white/40 text-sm font-light">PAN India Coverage</li>
+<li class="text-white/40 text-sm font-light">addorahospitality@gmail.com</li>
+<li class="text-white/40 text-sm font-light">+91 9580-345775</li>
+</ul>
+</div>
+
+<div>
+<h4 class="text-white font-medium mb-8 uppercase tracking-widest text-xs">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="#">Privacy Policy</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="#">Terms of Service</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="pt-8 border-t border-white/5 text-center text-[10px] uppercase tracking-widest text-white/30">
+© 2024 Addora Hospitality Marketing Services. All Rights Reserved.
+</div>
+
+</div>
+</footer>
+
+<script>
+/* ===== NAVBAR SHRINK ON SCROLL ===== */
+const header = document.querySelector('header');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    
+    if (scrollTop > 100) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+/* ===== ENHANCED SCROLL REVEALS ===== */
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray('section').forEach((el, index) => {
+    gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'back.out',
+        scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+        }
+    });
+});
+
+/* ===== ANIMATED COUNTERS ===== */
+gsap.registerPlugin(ScrollTrigger);
+
+const statsSection = document.querySelector('.border-y');
+
+if (statsSection) {
+    ScrollTrigger.create({
+        trigger: statsSection,
+        start: 'top center',
+        onEnter: () => {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                const suffix = counter.nextElementSibling?.textContent.includes('%') ? '%' : 
+                             counter.dataset.target >= 100 ? '+' : '';
+                
+                gsap.to(counter, {
+                    textContent: target,
+                    duration: 2.5,
+                    ease: 'power2.out',
+                    snap: { textContent: 1 },
+                    onUpdate: function() {
+                        counter.textContent = Math.round(this.targets()[0].textContent) + (suffix && target >= 12 ? '+' : '') + (target === 98 ? '%' : '');
+                    }
+                });
+            });
+        },
+        once: true
+    });
+}
+
+/* ===== LAZY LOAD IMAGES ===== */
+const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                img.removeAttribute('data-src');
+            }
+            observer.unobserve(img);
+        }
+    });
+}, {
+    rootMargin: '50px'
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+
+/* ===== SMOOTH PAGE TRANSITIONS ===== */
+const pageTransition = document.getElementById('page-transition');
+const internalLinks = document.querySelectorAll('a[href$=".html"]');
+
+internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.href;
+        const currentPage = window.location.href;
+        
+        // Don't transition if it's the same page
+        if (href === currentPage) {
+            e.preventDefault();
+            return;
+        }
+        
+        e.preventDefault();
+        
+        // Fade out
+        document.body.classList.add('transitioning');
+        pageTransition.style.opacity = '1';
+        
+        // Navigate after fade
+        setTimeout(() => {
+            window.location.href = href;
+        }, 300);
+    });
+});
+
+// Fade in on load
+window.addEventListener('load', () => {
+    document.body.classList.remove('transitioning');
+    pageTransition.style.opacity = '0';
+    window.scrollTo(0, 0);
+});
+
+</script>
+
+</body>
+</html>
