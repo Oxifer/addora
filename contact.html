@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Addora | Hospitality Growth Consultation</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#111111",
+gold: "#C8A951",
+goldlight: "#E5D296",
+surface: "#1a1a1a",
+borderdark: "#2a2a2a",
+subtext: "#B8B8B8"
+},
+fontFamily: {
+serif: ["Playfair Display", "serif"],
+sans: ["Inter", "sans-serif"]
+}
+}
+}
+}
+</script>
+
+<style>
+body {
+background:#111111;
+color:#F8F8F8;
+font-family:'Inter',sans-serif;
+opacity: 1;
+transition: opacity 0.3s ease-in-out;
+}
+body.transitioning {
+opacity: 0.5;
+}
+
+.floating input:focus + label,
+.floating input:not(:placeholder-shown) + label,
+.floating textarea:focus + label,
+.floating textarea:not(:placeholder-shown) + label {
+transform: translateY(-22px) scale(0.85);
+color:#C8A951;
+}
+
+.floating label {
+transition:0.2s ease;
+pointer-events:none;
+}
+
+/* Smooth Scroll */
+html {
+scroll-behavior: smooth;
+}
+
+/* Navbar Shrink */
+header {
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+header.shrink {
+padding: 0.5rem 0;
+}
+header.shrink h2 {
+font-size: 1.25rem;
+}
+
+/* Button Ripple Effect */
+button[type="submit"], a {
+position: relative;
+overflow: hidden;
+}
+button[type="submit"]::after, a::after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: rgba(200, 169, 81, 0.5);
+border-radius: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+button[type="submit"]:active::after, a:active::after {
+animation: ripple 0.6s ease-out;
+}
+@keyframes ripple {
+to {
+width: 300px;
+height: 300px;
+opacity: 0;
+}
+}
+
+/* Lazy Load Images */
+img[loading="lazy"] {
+backdrop-filter: blur(10px);
+}
+img[loading="lazy"].loaded {
+animation: imageLoad 0.6s ease-out;
+}
+@keyframes imageLoad {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+/* Enhanced Scroll Reveal */
+.scroll-reveal {
+opacity: 0;
+transform: translateY(40px);
+}
+.scroll-reveal.active {
+animation: scrollReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes scrollReveal {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Page Transition Overlay -->
+<div class="fixed inset-0 bg-primary z-[200] pointer-events-none" id="page-transition" style="opacity: 1; transition: opacity 0.5s ease-in-out;"></div>
+
+<!-- NAVBAR -->
+<header class="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-md border-b border-borderdark">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+<img src="assest/logo.png" alt="Addora Logo" class="h-8 w-auto">
+<nav class="hidden md:flex gap-10 text-sm uppercase tracking-widest text-subtext">
+<a href="index.html" class="hover:text-gold transition">Home</a>
+<a href="services.html" class="hover:text-gold transition">Services</a>
+<a href="Success_stories.html" class="hover:text-gold transition">Success Stories</a>
+<a href="about.html" class="hover:text-gold transition">About</a>
+<a href="contact.html" class="text-gold">Contact</a>
+</nav>
+
+</div>
+</header>
+
+
+<!-- HERO + FORM -->
+<section class="pt-40 pb-32">
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
+
+<!-- LEFT CONTENT -->
+<div>
+
+<h1 class="font-serif text-5xl md:text-6xl leading-tight">
+Start Your <span class="text-gold">Growth Campaign</span>
+</h1>
+
+<p class="text-subtext text-lg mt-8 max-w-xl leading-relaxed">
+Partner with Addora to increase occupancy,
+drive verified footfall, and build measurable brand authority
+across your region and PAN India.
+</p>
+
+<form class="mt-12 space-y-8">
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="relative floating">
+<input type="text" placeholder=" " required
+class="w-full bg-surface border border-borderdark rounded-lg px-4 py-4 outline-none focus:border-gold"/>
+<label class="absolute left-4 top-4 text-subtext bg-surface px-1 text-sm">
+Full Name
+</label>
+</div>
+
+<div class="relative floating">
+<input type="text" placeholder=" " required
+class="w-full bg-surface border border-borderdark rounded-lg px-4 py-4 outline-none focus:border-gold"/>
+<label class="absolute left-4 top-4 text-subtext bg-surface px-1 text-sm">
+Hotel / Resort / Club Name
+</label>
+</div>
+
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="relative floating">
+<input type="tel" placeholder=" " required
+class="w-full bg-surface border border-borderdark rounded-lg px-4 py-4 outline-none focus:border-gold"/>
+<label class="absolute left-4 top-4 text-subtext bg-surface px-1 text-sm">
+Phone Number
+</label>
+</div>
+
+<div class="relative floating">
+<input type="text" placeholder=" " required
+class="w-full bg-surface border border-borderdark rounded-lg px-4 py-4 outline-none focus:border-gold"/>
+<label class="absolute left-4 top-4 text-subtext bg-surface px-1 text-sm">
+City
+</label>
+</div>
+
+</div>
+
+<div class="relative floating">
+<textarea rows="4" placeholder=" " required
+class="w-full bg-surface border border-borderdark rounded-lg px-4 py-4 outline-none resize-none focus:border-gold"></textarea>
+<label class="absolute left-4 top-4 text-subtext bg-surface px-1 text-sm">
+What growth challenges are you facing?
+</label>
+</div>
+
+<button type="submit"
+class="bg-gold text-primary px-12 py-5 uppercase text-xs tracking-widest font-semibold hover:bg-goldlight transition-all">
+Request Strategy Discussion
+</button>
+
+</form>
+
+</div>
+<!-- RIGHT SIDE CONTACT INFO -->
+<div class="space-y-12">
+
+<!-- PAN INDIA COVERAGE -->
+<div class="bg-surface border border-borderdark rounded-2xl p-8">
+<h3 class="font-serif text-2xl mb-6">
+PAN India Coverage
+</h3>
+
+<p class="text-subtext leading-relaxed mb-6">
+Addora operates across major hospitality hubs including
+Mumbai, Delhi NCR, Bangalore, Goa, Jaipur, Hyderabad,
+Pune, and emerging tier-2 growth markets.
+</p>
+
+<div class="grid grid-cols-2 gap-4 text-sm text-subtext uppercase tracking-widest">
+<span>Mumbai</span>
+<span>Delhi NCR</span>
+<span>Bangalore</span>
+<span>Goa</span>
+<span>Jaipur</span>
+<span>Hyderabad</span>
+</div>
+</div>
+
+
+<!-- DIRECT CONTACT -->
+<div class="bg-surface border border-borderdark rounded-2xl p-8 space-y-8">
+
+<h3 class="font-serif text-2xl">
+Direct Connect
+</h3>
+
+<a href="tel:+919580345775"
+class="flex items-center justify-between group border border-borderdark rounded-lg p-4 hover:border-gold transition">
+<div>
+<p class="text-xs uppercase tracking-widest text-subtext mb-1">
+Phone
+</p>
+<p class="text-lg font-semibold">
++91 9580-345775
+</p>
+</div>
+<span class="text-gold group-hover:translate-x-1 transition">
+→
+</span>
+</a>
+
+<a href="mailto:addorahospitality@gmail.com"
+class="flex items-center justify-between group border border-borderdark rounded-lg p-4 hover:border-gold transition">
+<div>
+<p class="text-xs uppercase tracking-widest text-subtext mb-1">
+Email
+</p>
+<p class="text-lg font-semibold">
+addorahospitality@gmail.com
+</p>
+</div>
+<span class="text-gold group-hover:translate-x-1 transition">
+→
+</span>
+</a>
+
+<a href="https://wa.me/919580345775"
+class="flex items-center justify-between group border border-borderdark rounded-lg p-4 hover:border-gold transition">
+<div>
+<p class="text-xs uppercase tracking-widest text-subtext mb-1">
+WhatsApp
+</p>
+<p class="text-lg font-semibold">
++91 9580-345775
+</p>
+</div>
+<span class="text-gold group-hover:translate-x-1 transition">
+→
+</span>
+</a>
+
+</div>
+
+
+<!-- TRUST SIGNALS -->
+<div class="border-t border-borderdark pt-8 text-sm text-subtext space-y-3">
+
+<div class="flex items-center gap-3">
+<span class="text-gold">•</span>
+<span>Confidential Strategy Consultation</span>
+</div>
+
+<div class="flex items-center gap-3">
+<span class="text-gold">•</span>
+<span>Response within 24 Hours</span>
+</div>
+
+<div class="flex items-center gap-3">
+<span class="text-gold">•</span>
+<span>Dedicated Hospitality Growth Specialist</span>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="border-t border-borderdark py-16 text-center">
+
+<h3 class="font-serif text-2xl text-gold mb-6">
+Addora
+</h3>
+
+<div class="flex justify-center gap-10 text-xs uppercase tracking-widest text-subtext mb-8">
+<a href="#" class="hover:text-gold transition">Privacy Policy</a>
+<a href="#" class="hover:text-gold transition">Terms of Service</a>
+<a href="#" class="hover:text-gold transition">LinkedIn</a>
+</div>
+
+<p class="text-subtext text-xs">
+© 2024 Addora Hospitality Marketing Services. All Rights Reserved.
+</p>
+
+</footer>
+
+<!-- Addora Footer -->
+<footer class="pt-24 pb-12 bg-primary border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6 w-full">
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+
+<div>
+<div class="flex items-center gap-3 mb-8">
+<img src="assest/logo.png" alt="Addora Logo" class="h-8 w-auto">
+
+</div>
+<p class="text-white/40 text-sm font-light leading-relaxed">
+Addora Hospitality Marketing Services — driving guaranteed footfalls PAN INDIA.
+</p>
+</div>
+
+<div>
+<h4 class="text-white font-medium mb-8 uppercase tracking-widest text-xs">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="index.html">Home</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="services.html">Services</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="Success_stories.html">Success Stories</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="about.html">About</a></li>
+</ul>
+</div>
+
+<div>
+<h4 class="text-white font-medium mb-8 uppercase tracking-widest text-xs">Contact</h4>
+<ul class="space-y-4">
+<li class="text-white/40 text-sm font-light">PAN India Coverage</li>
+<li class="text-white/40 text-sm font-light">addorahospitality@gmail.com</li>
+<li class="text-white/40 text-sm font-light">+91 9580-345775</li>
+</ul>
+</div>
+
+<div>
+<h4 class="text-white font-medium mb-8 uppercase tracking-widest text-xs">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="#">Privacy Policy</a></li>
+<li><a class="text-white/40 hover:text-gold text-sm transition-colors font-light" href="#">Terms of Service</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="pt-8 border-t border-white/5 text-center text-[10px] uppercase tracking-widest text-white/30">
+© 2024 Addora Hospitality Marketing Services. All Rights Reserved.
+</div>
+
+</div>
+</footer>
+
+<script>
+/* ===== NAVBAR SHRINK ON SCROLL ===== */
+const header = document.querySelector('header');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    
+    if (scrollTop > 100) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+/* ===== ENHANCED SCROLL REVEALS ===== */
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray('section').forEach((el, index) => {
+    gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'back.out',
+        scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+        }
+    });
+});
+
+/* ===== FORM INPUT ANIMATION ===== */
+const floatingInputs = document.querySelectorAll('.floating input, .floating textarea');
+floatingInputs.forEach(input => {
+    input.addEventListener('focus', function() {
+        gsap.to(this, {
+            borderColor: '#C8A951',
+            duration: 0.3,
+            ease: 'power2.out'
+        });
+    });
+});
+
+/* ===== LAZY LOAD IMAGES ===== */
+const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                img.removeAttribute('data-src');
+            }
+            observer.unobserve(img);
+        }
+    });
+}, {
+    rootMargin: '50px'
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+
+/* ===== SMOOTH PAGE TRANSITIONS ===== */
+const pageTransition = document.getElementById('page-transition');
+const internalLinks = document.querySelectorAll('a[href$=".html"]');
+
+internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.href;
+        const currentPage = window.location.href;
+        
+        // Don't transition if it's the same page
+        if (href === currentPage) {
+            e.preventDefault();
+            return;
+        }
+        
+        e.preventDefault();
+        
+        // Fade out
+        document.body.classList.add('transitioning');
+        pageTransition.style.opacity = '1';
+        
+        // Navigate after fade
+        setTimeout(() => {
+            window.location.href = href;
+        }, 300);
+    });
+});
+
+// Fade in on load
+window.addEventListener('load', () => {
+    document.body.classList.remove('transitioning');
+    pageTransition.style.opacity = '0';
+    window.scrollTo(0, 0);
+});
+
+</script>
+
+</body>
+</html>
